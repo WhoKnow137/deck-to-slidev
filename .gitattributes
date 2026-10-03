@@ -1,0 +1,3 @@
+lib/structural-transaction.mjs -text
+lib/layer-contract.mjs -text
+lib/image-paint-contract.mjs -text

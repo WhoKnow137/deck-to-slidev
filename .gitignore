@@ -1,0 +1,16 @@
+node_modules/
+output/
+*.deck
+!test/fixtures/public-minimal.deck
+*.jam
+*.fig
+.env*
+.npmrc
+.DS_Store
+.slidev-runtime/
+dist/
+*.partial-*/
+*.backup-*/
+*.log
+.npm-cache/
+OE0A_REPORT.md

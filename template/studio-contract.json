@@ -1,0 +1,17 @@
+{
+  "converterVersion": "0.6.1",
+  "studioCommit": "2c02b0ac79b5bc8fa0170affe53944b878403d3e",
+  "studioPackageVersion": "0.3.1-oe2-evidence.0",
+  "studioTarballSha256": "b34b247a54427c74ea8c43d94045cd6331a96109b82ba02006e55b1062ee385d",
+  "contractSourceSha256": "8a080dc7e4383733085fd4266aa2fc894ae55d54016a772ef026921f94cf1468",
+  "contractBundleSha256": "8229f383b347c231f2edc9b2b12fddde88598d64d9c675c75a01dacc3278da6a",
+  "studioWorkingTree": false,
+  "studioSourceSnapshotSha256": "257f72d6992d9f4d9a9d4b4ba53716c9a00a587d11d5e763924601c5eba78938",
+  "layerContractSourceSha256": "3d6f0eb9daf8c06647c82f8519694d24f8cde5c5532ce9cdab4ca0d1b36552c5",
+  "layerContractBundleSha256": "210af341c323e18f4682c52bdae6b2519643aa733c21a4264ff6d251e50e7e29",
+  "structuralTransactionSourceSha256": "2ffd7f56679d610490f948b22ea0e7bcae5b3d425339a6e67d1666683e4c369c",
+  "structuralTransactionBundleSha256": "34643690ca7a1c27f7d5eb479913735ea12e232ed0cabcbd1d89485ba083ced3",
+  "imagePaintInspectionOnly": true,
+  "imagePaintContractSourceSha256": "b9e78bc8346e6a471623877dfe2b1bdb1c18eaba035c62b99dc883f8f549342e",
+  "imagePaintContractBundleSha256": "aa45cc8aa0693b87cfe27292869fae84889786ba2abd6e23086cd49636a620cd"
+}

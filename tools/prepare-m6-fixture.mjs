@@ -1,0 +1,25 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {spawnSync} from 'node:child_process';
+const root=path.resolve(import.meta.dirname,'..'),out=path.resolve(process.argv[2]??path.join(root,'output/m6-synthetic'));
+if(fs.existsSync(out))throw Error('Choose a nonexistent synthetic output');
+const prep=spawnSync(process.execPath,[path.join(root,'tools/prepare-oe0a-fixture.mjs'),out],{stdio:'inherit'});
+if(prep.status!==0)throw Error('Synthetic base preparation failed');
+const source=fs.readFileSync(path.join(out,'slides.md'),'utf8');
+fs.mkdirSync(path.join(out,'pages'),{recursive:true});
+fs.mkdirSync(path.join(out,'data/slides/001'),{recursive:true});
+fs.mkdirSync(path.join(out,'data/slides/002'),{recursive:true});
+const second=source.replaceAll('public-synthetic','public-synthetic-b').replaceAll('id="oe-','id="m6b-').replace('Public synthetic presenter notes.','Second synthetic presenter notes.');
+fs.writeFileSync(path.join(out,'pages/001.md'),source);
+fs.writeFileSync(path.join(out,'pages/002.md'),second);
+fs.writeFileSync(path.join(out,'slides.md'),'---\ntitle: Public M6 structural fixture\ncanvasWidth: 1920\naspectRatio: 16/9\nsrc: ./pages/001.md\n---\n\n---\nsrc: ./pages/002.md\n---\n');
+const rows=[['001','public-synthetic','First','Public synthetic presenter notes.'],['002','public-synthetic-b','Second','Second synthetic presenter notes.']].map(([number,id,label,note],i)=>{
+  const dir=path.join(out,'data/slides',number);
+  fs.writeFileSync(path.join(dir,'notes.json'),JSON.stringify({status:'present',blocks:[{text:note}]},null,2)+'\n');
+  fs.writeFileSync(path.join(dir,'scene.json'),JSON.stringify({schemaVersion:1,id,label,children:[]},null,2)+'\n');
+  fs.writeFileSync(path.join(dir,'media.json'),JSON.stringify({slideId:id,placements:[]},null,2)+'\n');
+  return {id,label,skipped:false,order:i+1,page:`pages/${number}.md`,data:`data/slides/${number}`,notesStatus:'present'};
+});
+fs.writeFileSync(path.join(out,'data/slides/index.json'),JSON.stringify(rows,null,2)+'\n');
+for(const name of ['layer-provenance','conversion-provenance'])fs.writeFileSync(path.join(out,`data/${name}.json`),JSON.stringify({schemaVersion:1,objects:[]},null,2)+'\n');
+console.log(`M6 fixture: ${out}`);

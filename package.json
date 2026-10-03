@@ -1,0 +1,26 @@
+{
+  "name": "deck-to-slidev",
+  "version": "0.6.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/WhoKnow137/deck-to-slidev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WhoKnow137/deck-to-slidev.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "deck-to-slidev": "./bin/deck-to-slidev.mjs"
+  },
+  "scripts": {
+    "convert": "node bin/deck-to-slidev.mjs",
+    "test": "node --test --test-isolation=none test/*.test.mjs",
+    "check": "node --check bin/deck-to-slidev.mjs && node --check lib/scene.mjs && node --check lib/appearance.mjs && node --check lib/classify.mjs && node --check lib/studio-text.mjs && node --check lib/regenerate.mjs && node --check lib/render-semantic.mjs && node --check lib/managed-layer.mjs && node --check lib/layer-contract.mjs && node --check lib/regenerate-layers.mjs && node --check lib/structural-transaction.mjs && node --check lib/image-paint-evidence.mjs && node --check lib/image-paint-contract.mjs && node --check tools/prepare-oe2-evidence-fixture.mjs"
+  },
+  "dependencies": {
+    "openfig-core": "0.4.1"
+  }
+}
